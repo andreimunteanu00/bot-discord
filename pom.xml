@@ -31,7 +31,7 @@
 
     <build>
         <plugins>
-                              <plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
@@ -39,7 +39,6 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-<<<<<<< HEAD
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>appassembler-maven-plugin</artifactId>
@@ -62,52 +61,6 @@
                     </execution>
                 </executions>
             </plugin>
-=======
-                   <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>appassembler-maven-plugin</artifactId>
-            <version>2.1.0</version>
-            <configuration>
-                <assembleDirectory>target</assembleDirectory>
-                <programs>
-                    <program>
-                        <mainClass>Bot.java</mainClass>
-                        <name>botDiscord</name>
-                    </program>
-                </programs>
-            </configuration>
-            <executions>
-                <execution>
-                    <phase>package</phase>
-                    <goals>
-                        <goal>assemble</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
-                 <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                    <configuration>
-                    <archive>
-                    <manifest>
-                        <mainClass>yourPackage.yourClass</mainClass>
-                    </manifest>
-                    </archive>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                </configuration>
-                <executions>
-                    <execution>
-                    <id>make-assembly</id>
-                    <phase>package</phase>
-                    <goals>
-                        <goal>single</goal>
-                    </goals>
-                    </execution>
-                </executions>
-            </plugin> 
->>>>>>> 6b94619af08d9746c8b7252a1fb7d8621aa56dbf
         </plugins>
     </build>
 
