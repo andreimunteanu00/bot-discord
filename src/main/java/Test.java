@@ -6,7 +6,7 @@ public class Test extends ListenerAdapter {
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
         String args[] = event.getMessage().getContentRaw().split("\\s");
-        if(args[0].equalsIgnoreCase( "*love")) {
+        if(args[0].equalsIgnoreCase( Bot.getPREFIX() + "love")) {
             EmbedBuilder test = new EmbedBuilder();
             test.setTitle("\uD83E\uDD29  CE FRUMOS ESTI  \uD83E\uDD29");
             test.setDescription(event.getAuthor().getName() + " considera ca " + args[1] + " e frumos");

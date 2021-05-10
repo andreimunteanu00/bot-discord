@@ -8,7 +8,11 @@ import javax.security.auth.login.LoginException;
 public class Bot {
 
     private static JDABuilder bot;
-    private String prefix;
+    private static final String PREFIX = "*";
+
+    public static String getPREFIX() {
+        return PREFIX;
+    }
 
     public static void main(String[] args) throws LoginException {
         bot = JDABuilder
@@ -19,5 +23,4 @@ public class Bot {
         bot.addEventListeners(new Test());
         bot.build();
     }
-
 }
