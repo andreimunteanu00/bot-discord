@@ -14,9 +14,9 @@ public class Bot {
         bot = (JDA) JDABuilder
                 .createDefault("ODM1MTczNzI5NjQ1ODg3NTc4.YILmJQ.UrmatOjzqKL5PxDt8CE70bdm7L0")
                 .addEventListeners(new Listener())
-                .setActivity(Activity.watching("milsugi"))
                 .addEventListeners(new Role())
                 .addEventListeners(new Test())
+                .setActivity(Activity.watching("milsugi"))
                 .build();
     }
 
