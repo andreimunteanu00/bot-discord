@@ -7,17 +7,17 @@ import javax.security.auth.login.LoginException;
 
 public class Bot {
 
-    private static JDA bot;
+    private static JDABuilder bot;
     private String prefix;
 
     public static void main(String[] args) throws LoginException {
-        bot = (JDA) JDABuilder
+        bot = JDABuilder
                 .createDefault("ODM1MTczNzI5NjQ1ODg3NTc4.YILmJQ.UrmatOjzqKL5PxDt8CE70bdm7L0")
-                .addEventListeners(new Listener())
-                .addEventListeners(new Role())
-                .addEventListeners(new Test())
-                .setActivity(Activity.watching("milsugi"))
-                .build();
+                .addEventListeners(new Listener());
+        bot.enableIntents(GatewayIntent.GUILD_MEMBERS);
+        bot.addEventListeners(new Role());
+        bot.addEventListeners(new Test());
+        bot.build();
     }
 
 }
