@@ -1,64 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>net.dv8tion</groupId>
-  <artifactId>JDA</artifactId>
-  <version>1.1.0_57</version>
-  <name>JDA</name>
-  <description>A wrapping of the Discord REST api and its Websocket-Events for Java.</description>
-  <url>https://github.com/DV8FromTheWorld/JDA</url>
-  <licenses>
-    <license>
-      <name>The Apache License, Version 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-    </license>
-  </licenses>
-  <developers>
-    <developer>
-      <id>DV8FromTheWorld</id>
-      <name>Austin Keener</name>
-      <email>keeneraustin@yahoo.com</email>
-    </developer>
-    <developer>
-      <id>Kantekugel</id>
-      <name>Michael Ritter</name>
-      <email>ritter.michael92@gmail.com</email>
-    </developer>
-  </developers>
-  <scm>
-    <connection>scm:git:git@github.com:DV8FromTheWorld/JDA.git</connection>
-    <developerConnection>scm:git:git@github.com:DV8FromTheWorld/JDA.git</developerConnection>
-    <url>scm:git:git@github.com:DV8FromTheWorld/JDA.git</url>
-  </scm>
-  <dependencies>
-    <dependency>
-      <groupId>com.mashape.unirest</groupId>
-      <artifactId>unirest-java</artifactId>
-      <version>1.4.7</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-lang3</artifactId>
-      <version>3.4</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.json</groupId>
-      <artifactId>json</artifactId>
-      <version>20150729</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.neovisionaries</groupId>
-      <artifactId>nv-websocket-client</artifactId>
-      <version>1.16</version>
-      <scope>compile</scope>
-    </dependency>
-  </dependencies>
-    
-       <build>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>mnt</groupId>
+    <artifactId>bot</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <dependencies>
+        <dependency>
+            <groupId>net.dv8tion</groupId>
+            <artifactId>JDA</artifactId>
+            <version>4.2.1_262</version>
+        </dependency>
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>dv8tion</id>
+            <name>m2-dv8tion</name>
+            <url>https://m2.dv8tion.net/releases</url>
+        </repository>
+    </repositories>
+
+    <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -71,4 +37,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>
