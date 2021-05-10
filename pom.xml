@@ -14,7 +14,11 @@
             <artifactId>JDA</artifactId>
             <version>4.2.1_262</version>
         </dependency>
-    </dependencies>
+        <dependency>
+            <groupId>com.github.princesslana</groupId>
+            <artifactId>ErisCasper.java</artifactId>
+            <version>0.3.0</version>
+        </dependency></dependencies>
 
     <repositories>
         <repository>
