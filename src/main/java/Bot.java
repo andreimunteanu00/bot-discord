@@ -16,7 +16,7 @@ public class Bot {
                 .addEventListeners(new Listener())
                 .setActivity(Activity.watching("milsugi"))
                 .addEventListeners(new Role())
-
+                .addEventListeners(new Test())
                 .build();
     }
 
