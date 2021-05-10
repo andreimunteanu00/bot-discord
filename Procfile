@@ -1,1 +1,1 @@
-Worker: javac src/main/java/Bot.java
+worker: sh target/bin/botDiscord
