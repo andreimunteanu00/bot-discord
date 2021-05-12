@@ -6,26 +6,19 @@ import org.jetbrains.annotations.NotNull;
 
 public class Role extends ListenerAdapter {
 
-    //not working
-    private String defaultRole;
-
-    @Override
-    public void onMessageReceived(@NotNull MessageReceivedEvent event) {
-        String args[] = event.getMessage().getContentRaw().split("\\s");
-        if(args[0].equalsIgnoreCase(Bot.getPREFIX() + "setDefaultRole")) {
-            defaultRole = args[1];
-        }
-    }
+    private String defaultRoleBot = "691219643389444116";
+    private String defaultRole = "691219338488971265";
 
     @Override
     public void onGuildMemberJoin(@NotNull GuildMemberJoinEvent event) {
         Member member = event.getMember();
         net.dv8tion.jda.api.entities.Role role;
         if (event.getUser().isBot()) {
-            role = event.getGuild().getRoleById("691219643389444116");
+            role = event.getGuild().getRoleById(defaultRoleBot);
         } else {
-            role = (net.dv8tion.jda.api.entities.Role) event.getGuild().getRolesByName(defaultRole, true);
+            role = event.getGuild().getRoleById(defaultRole);
         }
+        assert role != null;
         event.getGuild().addRoleToMember(member, role).submit();
     }
 }
