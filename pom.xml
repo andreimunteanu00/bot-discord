@@ -19,6 +19,11 @@
             <artifactId>botCommons</artifactId>
             <version>1.0.78</version>
         </dependency>
+        <dependency>
+            <groupId>com.sedmelluq</groupId>
+            <artifactId>lavaplayer</artifactId>
+            <version>1.3.75</version>
+        </dependency>
     </dependencies>
 
     <repositories>
@@ -43,6 +48,7 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
+                <version>2.3.2</version>
             </plugin>
 
             <plugin>
