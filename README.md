@@ -1,3 +1,4 @@
 # botDiscord
 
-testing Role class (still doesn't work as I wish)
+--+default Role added for bots and users+--
+---working---
