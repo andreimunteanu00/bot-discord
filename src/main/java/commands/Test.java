@@ -28,7 +28,7 @@ public class Test implements ICommand {
 
     @Override
     public String getHelp() {
-        return "clasa de test";
+        return "comanda de test";
     }
 
 }
