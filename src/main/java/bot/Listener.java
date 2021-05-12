@@ -41,9 +41,9 @@ public class Listener extends ListenerAdapter {
         Member member = event.getMember();
         net.dv8tion.jda.api.entities.Role role;
         if (event.getUser().isBot()) {
-            role = event.getGuild().getRoleById(Constants.defaultRoleBot);
+            role = event.getGuild().getRoleById(System.getenv("DEFAULTBOTROLE"));
         } else {
-            role = event.getGuild().getRoleById(Constants.defaultRole);
+            role = event.getGuild().getRoleById(System.getenv("DEFAULTROLE"));
         }
         assert role != null;
         event.getGuild().addRoleToMember(member, role).submit();
