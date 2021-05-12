@@ -1,7 +1,7 @@
 package commands;
 
-import manager.CommandContext;
-import manager.ICommand;
+import manager.commands.CommandContext;
+import manager.commands.ICommand;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 

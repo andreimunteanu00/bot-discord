@@ -1,4 +1,4 @@
-package commands.audioplayer;
+package manager.audioplayer;
 
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
 import com.sedmelluq.discord.lavaplayer.track.playback.MutableAudioFrame;

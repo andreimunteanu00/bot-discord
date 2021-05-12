@@ -1,8 +1,8 @@
 package commands;
 
-import commands.audioplayer.PlayerManager;
-import manager.CommandContext;
-import manager.ICommand;
+import manager.audioplayer.PlayerManager;
+import manager.commands.CommandContext;
+import manager.commands.ICommand;
 import net.dv8tion.jda.api.entities.GuildVoiceState;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.TextChannel;
@@ -11,7 +11,6 @@ import net.dv8tion.jda.api.managers.AudioManager;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
 
 public class JoinAndPlay implements ICommand {
 

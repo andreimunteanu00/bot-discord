@@ -1,6 +1,4 @@
-package manager;
-
-import manager.CommandContext;
+package manager.commands;
 
 public interface ICommand {
 

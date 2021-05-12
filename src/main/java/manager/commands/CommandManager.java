@@ -1,6 +1,7 @@
-package manager;
+package manager.commands;
 
 import bot.Constants;
+import commands.Disconnect;
 import commands.JoinAndPlay;
 import commands.Test;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
@@ -18,6 +19,7 @@ public class CommandManager {
     public CommandManager() {
         addCommand(new Test());
         addCommand(new JoinAndPlay());
+        addCommand(new Disconnect());
     }
 
     public void addCommand(ICommand cmd) {

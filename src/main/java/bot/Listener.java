@@ -1,6 +1,6 @@
 package bot;
 
-import manager.CommandManager;
+import manager.commands.CommandManager;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.ReadyEvent;
@@ -38,15 +38,12 @@ public class Listener extends ListenerAdapter {
     @Override
     public void onGuildMemberJoin(@NotNull GuildMemberJoinEvent event) {
 
-        String defaultRoleBot = "691219643389444116";
-        String defaultRole = "691219338488971265";
-
         Member member = event.getMember();
         net.dv8tion.jda.api.entities.Role role;
         if (event.getUser().isBot()) {
-            role = event.getGuild().getRoleById(defaultRoleBot);
+            role = event.getGuild().getRoleById(Constants.defaultRoleBot);
         } else {
-            role = event.getGuild().getRoleById(defaultRole);
+            role = event.getGuild().getRoleById(Constants.defaultRole);
         }
         assert role != null;
         event.getGuild().addRoleToMember(member, role).submit();
