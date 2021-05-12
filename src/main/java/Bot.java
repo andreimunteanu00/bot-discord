@@ -8,16 +8,15 @@ import javax.security.auth.login.LoginException;
 public class Bot {
 
     private static JDABuilder bot;
-    private String prefix;
 
     public static void main(String[] args) throws LoginException {
         bot = JDABuilder
-                .createDefault("ODM1MTczNzI5NjQ1ODg3NTc4.YILmJQ.UrmatOjzqKL5PxDt8CE70bdm7L0")
+                .createDefault(Constants.TOKEN)
+                .setActivity(Activity.watching("*help | coming soon"))
                 .addEventListeners(new Listener());
         bot.enableIntents(GatewayIntent.GUILD_MEMBERS);
         bot.addEventListeners(new Role());
         bot.addEventListeners(new Test());
         bot.build();
     }
-
 }
