@@ -4,9 +4,11 @@ import com.sedmelluq.discord.lavaplayer.player.AudioLoadResultHandler;
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager;
 import com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager;
 import com.sedmelluq.discord.lavaplayer.source.AudioSourceManagers;
+import com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack;
 import com.sedmelluq.discord.lavaplayer.tools.FriendlyException;
 import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
+import com.sedmelluq.discord.lavaplayer.track.AudioTrackInfo;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.TextChannel;
 
@@ -15,6 +17,7 @@ import java.util.Map;
 
 public class PlayerManager {
 
+    private YoutubeAudioTrack youtubeAudioTrack;
     private static PlayerManager INSTANCE;
     private final Map<Long, GuildMusicManager> musicManagers;
     private final AudioPlayerManager audioPlayerManager;
@@ -40,24 +43,44 @@ public class PlayerManager {
         audioPlayerManager.loadItemOrdered(musicManager, trackURL, new AudioLoadResultHandler() {
             @Override
             public void trackLoaded(AudioTrack audioTrack) {
+                channel.sendMessage("" + audioTrack.getDuration()).submit();
                 musicManager.scheduler.queue(audioTrack);
 
-                channel.sendMessage("Adding to queue: ")
-                        .append(audioTrack.getInfo().title)
-                        .append("` by `")
-                        .append(audioTrack.getInfo().author)
-                        .append('`')
-                        .queue();
+                if (musicManager.scheduler.queue.size() > 0) {
+                    channel.sendMessage("`Adding to queue: ")
+                            .append(audioTrack.getInfo().title)
+                            .append(" by ")
+                            .append(audioTrack.getInfo().author)
+                            .append('`')
+                            .queue();
+                } else {
+                    final AudioTrackInfo info = (AudioTrackInfo) musicManager.player.getPlayingTrack().getInfo();
+                    channel.sendMessageFormat("Now playing `%s` by `%s` (Link: <%s>)", info.title, info.author, info.uri).submit();
+                }
             }
 
             @Override
             public void playlistLoaded(AudioPlaylist audioPlaylist) {
+                AudioTrack audioTrack = audioPlaylist.getTracks().get(0);
+                musicManager.scheduler.queue(audioTrack);
+
+                if (musicManager.scheduler.queue.size() > 0) {
+                    channel.sendMessage("`Adding to queue: ")
+                            .append(audioTrack.getInfo().title)
+                            .append(" by ")
+                            .append(audioTrack.getInfo().author)
+                            .append('`')
+                            .queue();
+                } else {
+                    final AudioTrackInfo info = (AudioTrackInfo) musicManager.player.getPlayingTrack().getInfo();
+                    channel.sendMessageFormat("Now playing `%s` by `%s` (Link: <%s>)", info.title, info.author, info.uri).submit();
+                }
 
             }
 
             @Override
             public void noMatches() {
-
+                channel.sendMessage("`❌ N-am gasit boss ❌`").submit();
             }
 
             @Override

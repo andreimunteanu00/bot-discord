@@ -1,9 +1,7 @@
 package manager.commands;
 
 import bot.Constants;
-import commands.Disconnect;
-import commands.JoinAndPlay;
-import commands.Test;
+import commands.*;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import javax.annotation.Nullable;
@@ -20,6 +18,9 @@ public class CommandManager {
         addCommand(new Test());
         addCommand(new JoinAndPlay());
         addCommand(new Disconnect());
+        addCommand(new Stop());
+        addCommand(new Skip());
+        addCommand(new Repeat());
     }
 
     public void addCommand(ICommand cmd) {
@@ -50,10 +51,9 @@ public class CommandManager {
         String splits[] = event.getMessage().getContentRaw().replaceFirst("(?i)" + Pattern.quote(Constants.PREFIX), "")
                 .split("\\s+");
         String invoke = splits[0].toLowerCase();
-        ICommand cmd = this.getCommand(invoke);
+        ICommand cmd = getCommand(invoke);
 
         if(cmd != null) {
-            event.getChannel().sendTyping().submit();
             List<String> args = Arrays.asList(splits).subList(1, splits.length);
             CommandContext ctx = new CommandContext(event, args);
             cmd.handle(ctx);
