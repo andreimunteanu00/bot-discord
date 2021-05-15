@@ -43,7 +43,6 @@ public class PlayerManager {
         audioPlayerManager.loadItemOrdered(musicManager, trackURL, new AudioLoadResultHandler() {
             @Override
             public void trackLoaded(AudioTrack audioTrack) {
-                channel.sendMessage("" + audioTrack.getDuration()).submit();
                 musicManager.scheduler.queue(audioTrack);
 
                 if (musicManager.scheduler.queue.size() > 0) {
