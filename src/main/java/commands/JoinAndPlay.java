@@ -17,11 +17,19 @@ public class JoinAndPlay implements ICommand {
 
     @Override
     public void handle(CommandContext ctx) {
+        List<Role> roles = ctx.getGuild().getRoles();
         final TextChannel channel = ctx.getChannel();
         final Member self = ctx.getSelfMember();
         final Member member = ctx.getMember();
         final GuildVoiceState selfVoiceState = self.getVoiceState();
         final GuildVoiceState memberVoiceState = member.getVoiceState();
+
+        Role roleThatIsAble = ctx.getGuild().getRoleById(System.getenv("DJROLE"));
+        List<Role> memberRoles = ctx.getMember().getRoles();
+        if (!memberRoles.contains(roleThatIsAble)) {
+            channel.sendMessage("You are not able to do that!").submit();
+            return;
+        }
 
         if (!memberVoiceState.inVoiceChannel()) {
            channel.sendMessage("You need to be in the channel for this to work").submit();
