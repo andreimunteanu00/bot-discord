@@ -32,16 +32,9 @@ public class JoinAndPlay implements ICommand {
         }
 
         if (!memberVoiceState.inVoiceChannel()) {
-           channel.sendMessage("You need to be in the channel for this to work").submit();
-           return;
+            channel.sendMessage("You need to be in the channel for this to work").submit();
+            return;
         }
-
-        //if (memberVoiceState.getChannel().getMembers().size() >= 2) {
-            //if(!memberVoiceState.getChannel().equals(selfVoiceState.getChannel())) {
-              //  channel.sendMessage("You need to be in the same channel for this to work").submit();
-               // return;
-           // }
-        //}
 
         final AudioManager audioManager = selfVoiceState.getGuild().getAudioManager();
         final VoiceChannel memberVoiceChannel = memberVoiceState.getChannel();
