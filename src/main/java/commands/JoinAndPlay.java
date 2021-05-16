@@ -26,7 +26,11 @@ public class JoinAndPlay implements ICommand {
 
         Role roleThatIsAble = ctx.getGuild().getRoleById(System.getenv("DJROLE"));
         List<Role> memberRoles = ctx.getMember().getRoles();
-        if (!memberRoles.contains(roleThatIsAble)) {
+
+        channel.sendMessage(ctx.getGuild().getName()).submit();
+
+        if (!memberRoles.contains(roleThatIsAble) &&
+                ctx.getGuild().getName().equalsIgnoreCase("casa masonilor")) {
             channel.sendMessage("You are not able to do that!").submit();
             return;
         }

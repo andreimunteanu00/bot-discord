@@ -32,6 +32,7 @@ public class Listener extends ListenerAdapter {
 
         if (args.startsWith(Constants.PREFIX)) {
             manager.handle(event);
+            event.getChannel().sendMessage(event.getGuild().getId());
         }
     }
 
