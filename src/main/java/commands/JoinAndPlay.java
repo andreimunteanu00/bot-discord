@@ -1,8 +1,5 @@
 package commands;
 
-import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
-import com.sedmelluq.discord.lavaplayer.track.AudioTrackInfo;
-import manager.audioplayer.GuildMusicManager;
 import manager.audioplayer.PlayerManager;
 import manager.commands.CommandContext;
 import manager.commands.ICommand;
@@ -25,7 +22,8 @@ public class JoinAndPlay implements ICommand {
         final GuildVoiceState selfVoiceState = self.getVoiceState();
         final GuildVoiceState memberVoiceState = member.getVoiceState();
 
-        Role roleThatIsAble = ctx.getGuild().getRoleById(System.getenv("DJROLE"));
+        //TODO de fixat cioaca asta
+        Role roleThatIsAble = ctx.getGuild().getRoleById(542462641222713367L);
         List<Role> memberRoles = ctx.getMember().getRoles();
 
         if (ctx.getGuild().getName().equalsIgnoreCase("Casa Masonilor")) {

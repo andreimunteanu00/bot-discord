@@ -8,13 +8,10 @@ import net.dv8tion.jda.api.utils.cache.CacheFlag;
 
 import javax.security.auth.login.LoginException;
 import java.util.EnumSet;
-import java.util.logging.Handler;
 
 public class Bot {
 
     public static void main(String[] args) throws LoginException {
-
-        //String token = System.getenv("TOKEN");
 
         JDA bot = JDABuilder
                 .createDefault("ODM1MTczNzI5NjQ1ODg3NTc4.YILmJQ.Mr01_kE3sQ4ZSoruVf9dw5bVJ84",
