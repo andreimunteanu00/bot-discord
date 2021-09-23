@@ -9,6 +9,8 @@ import manager.commands.ICommand;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.managers.AudioManager;
 
+import java.util.Collections;
+
 public class Skip implements ICommand {
     @Override
     public void handle(CommandContext ctx) {
@@ -23,12 +25,11 @@ public class Skip implements ICommand {
             return;
         }
 
-        // if(channel.getMembers().size() >= 2) {
         if(!memberVoiceState.getChannel().equals(selfVoiceState.getChannel())) {
             channel.sendMessage("You need to be in the same channel for this to work").submit();
             return;
         }
-        // }
+
         final GuildMusicManager musicManager = PlayerManager.getInstance().getMusicManager(ctx.getGuild());
         final AudioPlayer audioPlayer = musicManager.player;
 
@@ -39,7 +40,7 @@ public class Skip implements ICommand {
         musicManager.scheduler.nextTrack();
         Message message = ctx.getEvent().getMessage();
         message.addReaction("\uD83D\uDC4C").submit();
-        final AudioTrackInfo info = (AudioTrackInfo) musicManager.player.getPlayingTrack().getInfo();
+        final AudioTrackInfo info = musicManager.player.getPlayingTrack().getInfo();
         channel.sendMessageFormat("Now playing `%s` by `%s` (Link: <%s>)", info.title, info.author, info.uri).submit();
 
     }

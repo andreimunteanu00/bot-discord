@@ -15,9 +15,10 @@ import java.util.List;
 
 public class JoinAndPlay implements ICommand {
 
+    public static String message;
+
     @Override
     public void handle(CommandContext ctx) {
-        List<Role> roles = ctx.getGuild().getRoles();
         final TextChannel channel = ctx.getChannel();
         final Member self = ctx.getSelfMember();
         final Member member = ctx.getMember();
@@ -35,8 +36,15 @@ public class JoinAndPlay implements ICommand {
         }
 
         if (!memberVoiceState.inVoiceChannel()) {
-            channel.sendMessage("You need to be in the channel for this to work").submit();
+            channel.sendMessage("You need to be in the channel for this to work!").submit();
             return;
+        }
+
+        if (selfVoiceState.getChannel() != memberVoiceState.getChannel()) {
+            if (selfVoiceState.inVoiceChannel()) {
+                channel.sendMessage("You need to be in the same channel as me!").submit();
+                return;
+            }
         }
 
         final AudioManager audioManager = selfVoiceState.getGuild().getAudioManager();

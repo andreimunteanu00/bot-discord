@@ -21,6 +21,7 @@ public class PlayerManager {
     private static PlayerManager INSTANCE;
     private final Map<Long, GuildMusicManager> musicManagers;
     private final AudioPlayerManager audioPlayerManager;
+    public static String lastMessage;
 
     public PlayerManager() {
         this.musicManagers = new HashMap<>();
@@ -44,7 +45,6 @@ public class PlayerManager {
             @Override
             public void trackLoaded(AudioTrack audioTrack) {
                 musicManager.scheduler.queue(audioTrack);
-
                 if (musicManager.scheduler.queue.size() > 0) {
                     channel.sendMessage("`Adding to queue: ")
                             .append(audioTrack.getInfo().title)
@@ -55,6 +55,7 @@ public class PlayerManager {
                 } else {
                     final AudioTrackInfo info = (AudioTrackInfo) musicManager.player.getPlayingTrack().getInfo();
                     channel.sendMessageFormat("Now playing `%s` by `%s` (Link: <%s>)", info.title, info.author, info.uri).submit();
+
                 }
             }
 
