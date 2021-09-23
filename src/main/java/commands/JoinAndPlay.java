@@ -22,7 +22,7 @@ public class JoinAndPlay implements ICommand {
         final GuildVoiceState selfVoiceState = self.getVoiceState();
         final GuildVoiceState memberVoiceState = member.getVoiceState();
 
-        Role roleThatIsAble = ctx.getGuild().getRoleById(System.getenv("DJROLE"));
+        Role roleThatIsAble = ctx.getGuild().getRoleById(542462641222713367L);
         List<Role> memberRoles = ctx.getMember().getRoles();
 
         if (ctx.getGuild().getName().equalsIgnoreCase("Casa Masonilor")) {
