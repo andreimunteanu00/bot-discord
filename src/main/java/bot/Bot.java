@@ -17,7 +17,7 @@ public class Bot {
         //String token = System.getenv("TOKEN");
 
         JDA bot = JDABuilder
-                .createDefault("ODM1MTczNzI5NjQ1ODg3NTc4.YILmJQ.UrmatOjzqKL5PxDt8CE70bdm7L0",
+                .createDefault("ODM1MTczNzI5NjQ1ODg3NTc4.YILmJQ.Mr01_kE3sQ4ZSoruVf9dw5bVJ84",
                 GatewayIntent.GUILD_MEMBERS,
                 GatewayIntent.GUILD_MESSAGES,
                 GatewayIntent.GUILD_VOICE_STATES)
