@@ -1,7 +1,7 @@
 # botDiscord
 
--+- default Role added for bots and users -+-
+-+- assign default role for bots and users to my server -+-
 
--x- still working at audio -x-
+-+- basic commands for an usual discord bot -+-
 
---- working ---
+-+- connected to an audio API for playing music/videos -+-

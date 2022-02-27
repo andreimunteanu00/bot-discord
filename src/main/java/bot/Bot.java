@@ -14,7 +14,7 @@ public class Bot {
     public static void main(String[] args) throws LoginException {
 
         JDA bot = JDABuilder
-                .createDefault("ODM1MTczNzI5NjQ1ODg3NTc4.YILmJQ.Mr01_kE3sQ4ZSoruVf9dw5bVJ84",
+                .createDefault(System.getenv("TOKEN"),
                 GatewayIntent.GUILD_MEMBERS,
                 GatewayIntent.GUILD_MESSAGES,
                 GatewayIntent.GUILD_VOICE_STATES)
